@@ -1,6 +1,9 @@
 - name: install mysql server
   hosts: web
   become: yes
+  vars:
+    mysql_root_passoword: ExpenseApp@1
+
   tasks:
   - name: install mysql liblaries
     ansible.builtin.pip:
@@ -21,7 +24,7 @@
   - name: connect to mysql server
     community.mysql.mysql_info:
       login_user: root
-      login_password: ExpenseApp@1
+      login_password: "{{ mysql_root_passoword }}"
       login_host: mysql.ardev.space
     register: mysql_info
     ignore_errors: true

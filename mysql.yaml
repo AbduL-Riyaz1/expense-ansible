@@ -7,6 +7,14 @@
       name: mysql-server
       state: installed
 
+  - name: install mysql liblaries
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      exceutable: pip3.9
+    loop:
+    - PyMySQL
+
+
   - name: start and enable mysql-server
     ansible.builtin.service:
       name: mysqld

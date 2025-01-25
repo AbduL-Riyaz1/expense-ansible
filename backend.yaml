@@ -15,4 +15,4 @@
 
   - name: Add user
     ansible.builtin.user:
-    name: expense
+      name: expense

@@ -1,41 +1,90 @@
-- name: install mysql server
-  hosts: web
+- name: configure mysql servre
+  hosts: mysql
   become: yes
-  vars:
-    mysql_root_passoword: ExpenseApp@1
-
   tasks:
-  - name: install mysql liblaries
-    ansible.builtin.pip:
-      name: "{{item}}"
-      executable: pip3.9
-    loop:
-    - cryptography
-    - PyMySQL
-
   - name: install MYSQL server
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: mysql-server
       state: installed
 
-  - name: start and enable mysql service
-    ansible.builtin.service:
-      name: mysqld
-      state: started
-      enabled: yes
 
-  - name: connect to mysql server
-    community.mysql.mysql_info:
-      login_user: root
-      login_password: "{{ mysql_root_passoword }}"
-      login_host: mysql.ardev.space
-    register: mysql_info
-    ignore_errors: true
 
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "MYSQL info: {{ mysql_info }}"
 
-  - name: setingup root password
-    ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
-    when: mysql_info.failed is true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# - name: install mysql server
+#   hosts: web
+#   become: yes
+#   vars:
+#     mysql_root_passoword: ExpenseApp@1
+
+#   tasks:
+#   - name: install mysql liblaries
+#     ansible.builtin.pip:
+#       name: "{{item}}"
+#       executable: pip3.9
+#     loop:
+#     - cryptography
+#     - PyMySQL
+
+#   - name: install MYSQL server
+#     ansible.builtin.package:
+#       name: mysql-server
+#       state: installed
+
+#   - name: start and enable mysql service
+#     ansible.builtin.service:
+#       name: mysqld
+#       state: started
+#       enabled: yes
+
+#   - name: connect to mysql server
+#     community.mysql.mysql_info:
+#       login_user: root
+#       login_password: "{{ mysql_root_passoword }}"
+#       login_host: mysql.ardev.space
+#     register: mysql_info
+#     ignore_errors: true
+
+#   - name: print the output
+#     ansible.builtin.debug:
+#       msg: "MYSQL info: {{ mysql_info }}"
+
+#   - name: setingup root password
+#     ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
+#     when: mysql_info.failed is true

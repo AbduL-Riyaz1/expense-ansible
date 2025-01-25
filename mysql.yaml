@@ -30,7 +30,7 @@
 
   - name: print mysql_info
     ansible.builtin.debug;
-      msg: "Mysql_info {{ mysql_info }}"
+      msg: "Mysql info: {{ mysql_info }}"
 
 
 

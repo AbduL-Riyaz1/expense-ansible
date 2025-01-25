@@ -13,6 +13,7 @@
       executable: pip3.9
     loop:
     - PyMySQL
+    - cryptography
 
 
   - name: start and enable mysql-server

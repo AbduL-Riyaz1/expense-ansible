@@ -2,8 +2,13 @@
   hosts: backend
   become: yes
   tasks:
-  - name: disable current nodejs vresion
+  - name: disable current Nodejs vresion
     ansible.builtin.command: "dnf module disable nodejs -y"
 
-  - name: enable nodejs v20
+  - name: enable Nodejs v20
     ansible.builtin.command: "dnf module enable nodejs:20 -y"
+
+  - name: install Nodejs
+    ansible.builtin.package:
+      name: nodejs
+      state: installed

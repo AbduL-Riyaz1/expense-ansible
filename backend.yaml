@@ -10,8 +10,11 @@
 
   - name: install Nodejs
     ansible.builtin.package:
-      name: nodejs
-      state: installed
+      name: "{{item}}"
+      state: present
+    loop:
+    - nodejs
+    - mysql
 
   - name: Add user
     ansible.builtin.user:

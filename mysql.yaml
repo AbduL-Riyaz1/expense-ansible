@@ -13,12 +13,12 @@
       state: started
       enabled: yes
 
-  - name: Get MySQL version with non-default credentials
+  - name: connect to mysql-server
     community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.ardev.space
-      
+
 
 
 

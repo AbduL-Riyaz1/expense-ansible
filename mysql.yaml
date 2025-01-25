@@ -28,9 +28,9 @@
       login_host: mysql.ardev.space
     register: mysql_info
 
-  - name: print mysql_info
-    ansible.builtin.debug;
-      msg: "Mysql info: {{ mysql_info }}"
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "MYSQL info: {{ mysql_info }}"
 
 
 

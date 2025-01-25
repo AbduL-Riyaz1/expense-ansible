@@ -10,7 +10,7 @@
   - name: install mysql liblaries
     ansible.builtin.pip:
       name: "{{ item }}"
-      exceutable: pip3.9
+      executable: pip3.9
     loop:
     - PyMySQL
 
